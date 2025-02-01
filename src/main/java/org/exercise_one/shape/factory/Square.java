@@ -14,7 +14,12 @@ public class Square implements Shape {
 
     @Override
     public void draw(int height){
-
+        for (int row = 0; row < height; row++ ){
+            for (int colum = 0; colum < height; colum++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 
 }

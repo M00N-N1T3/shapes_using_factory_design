@@ -2,18 +2,17 @@ package org.exercise_one.util;
 
 import java.io.*;
 
-public class captureOutputStream {
+public class StdoutReader {
 
     private ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
     private PrintStream defaultPrintStream = System.out; // the default stream
     private PrintStream customOutputStream = new PrintStream(byteArrayOutputStream);
 
-
     /**
      * Captures our stdout which we can then use for testing
      */
-    public void capture(){
-        setNewOutputStream();
+    public void readStdOutput(){
+        setCustomOutputStream();
     }
 
     /**
@@ -21,17 +20,18 @@ public class captureOutputStream {
      * @return String
      */
     public  String getText(){
-        resetPrintStream();
+        resetStdOutputStream();
         return byteArrayOutputStream.toString().trim();
     }
-    private void setNewOutputStream(){
+
+    private void setCustomOutputStream(){
         System.setOut(customOutputStream);
     }
 
     /**
      * Flushes the Outputstream and returns our original stream
      */
-    public void resetPrintStream(){
+    public void resetStdOutputStream(){
         System.out.flush();
         System.setOut(defaultPrintStream);
     }
