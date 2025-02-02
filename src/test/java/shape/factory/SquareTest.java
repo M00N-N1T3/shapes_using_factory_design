@@ -23,7 +23,7 @@ public class SquareTest {
     }
 
     @Test
-    public void drawDefaultShape(){
+    public void drawDefaultSquareShape(){
         StdoutReader stdoutReader = new StdoutReader();
         String expected = """
                 ******
@@ -56,6 +56,45 @@ public class SquareTest {
         reader.readStdOutput();
         Square square = new Square();
         square.draw(5);
+
+        String result = reader.getText();
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void drawDefaultSquareOutline(){
+        String expected = """
+                ******
+                *    *
+                *    *
+                *    *
+                *    *
+                ******
+                """.trim();
+        StdoutReader reader = new StdoutReader();
+
+        reader.readStdOutput();
+        Square square = new Square();
+        square.drawOutline();
+
+        String result = reader.getText();
+        assertEquals(expected,result);
+    }
+
+    @Test
+    public void drawSquareOutlineWithCustomHeight(){
+        String expected = """
+                *****
+                *   *
+                *   *
+                *   *
+                *****
+                """.trim();
+        StdoutReader reader = new StdoutReader();
+
+        reader.readStdOutput();
+        Square square = new Square();
+        square.drawOutline(5);
 
         String result = reader.getText();
         assertEquals(expected,result);

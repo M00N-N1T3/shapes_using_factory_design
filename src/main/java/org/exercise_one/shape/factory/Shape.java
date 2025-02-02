@@ -4,4 +4,8 @@ public interface Shape {
     void draw();
 
     void draw(int height);
+
+    void drawOutline();
+
+    void drawOutline(int height);
 }

@@ -22,4 +22,13 @@ public class Square implements Shape {
         }
     }
 
+    @Override
+    public void drawOutline(){
+        //
+    }
+
+    @Override
+    public void drawOutline(int height) {
+
+    }
 }

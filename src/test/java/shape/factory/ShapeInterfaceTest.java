@@ -4,7 +4,6 @@ import org.exercise_one.shape.factory.Shape;
 import org.junit.jupiter.api.*;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -12,7 +11,7 @@ import java.util.stream.Collectors;
 
 import static  org.junit.jupiter.api.Assertions.*;
 
-public class ShapeTest {
+public class ShapeInterfaceTest {
 
     // checks whether we have interface or not
     @Test
@@ -24,9 +23,9 @@ public class ShapeTest {
     @Test
     public void containsDrawMethods(){
         List<Method> methods = List.of(Shape.class.getMethods());
-        assertEquals(2, methods.size());
+        assertEquals(4, methods.size());
         Set<String> methodNames = methods.stream().map(Method::getName).collect(Collectors.toSet());
-        assertTrue(methodNames.contains("draw"));
+        assertTrue(methodNames.containsAll(List.of("draw","drawOutline")));
     }
 
 }
