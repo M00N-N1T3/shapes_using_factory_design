@@ -33,6 +33,22 @@ public class SquareTest {
     }
 
     @Test
+    public void correctShapeName(){
+        Square square = new Square();
+        assertEquals("square",square.getShapeName());
+    }
+
+    @Test
+    public void correctShapeHeight(){
+        Square square = new Square();
+        assertEquals(6,square.getShapeHeight());
+
+        square.setHeight(4);
+        assertEquals(4,square.getShapeHeight());
+
+    }
+
+    @Test
     public void drawDefaultSquareShape(){
         StdoutReader stdoutReader = new StdoutReader();
         String expected = """

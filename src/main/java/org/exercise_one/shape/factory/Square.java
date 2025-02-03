@@ -6,8 +6,8 @@ public class Square implements Shape {
 
     @Override
     public void draw() {
-        for (int row = 0; row < height; row++ ){
-            for (int colum = 0; colum < height; colum++){
+        for (int row = 0; row < height; row++) {
+            for (int colum = 0; colum < height; colum++) {
                 System.out.print("*");
             }
             System.out.println();
@@ -15,11 +15,11 @@ public class Square implements Shape {
     }
 
     @Override
-    public void draw(int height){
+    public void draw(int height) {
         this.height = height;
 
-        for (int row = 0; row < height; row++ ){
-            for (int colum = 0; colum < height; colum++){
+        for (int row = 0; row < height; row++) {
+            for (int colum = 0; colum < height; colum++) {
                 System.out.print("*");
             }
             System.out.println();
@@ -27,14 +27,14 @@ public class Square implements Shape {
     }
 
     @Override
-    public void drawOutline(){
-        for (int row = 0; row < height; row++){
-            for (int column = 0; column < height; column++){
+    public void drawOutline() {
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < height; column++) {
 
-                if ( row == 0 || row == height -1
-                        || column == 0 || column == height -1){
+                if (row == 0 || row == height - 1
+                        || column == 0 || column == height - 1) {
                     System.out.print("*");
-                }else {
+                } else {
                     System.out.print(" ");
                 }
             }
@@ -46,12 +46,12 @@ public class Square implements Shape {
     public void drawOutline(int height) {
         this.height = height;
 
-        for (int row = 0; row < height; row++){
-            for (int column = 0; column < height; column ++){
-                if ( row == 0 || row == height -1
-                        || column == 0 || column == height -1){
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < height; column++) {
+                if (row == 0 || row == height - 1
+                        || column == 0 || column == height - 1) {
                     System.out.print("*");
-                }else {
+                } else {
                     System.out.print(" ");
                 }
             }
@@ -64,7 +64,7 @@ public class Square implements Shape {
         return height;
     }
 
-    public void setHeight(int height){
+    public void setHeight(int height) {
         this.height = height;
     }
 
@@ -73,9 +73,4 @@ public class Square implements Shape {
         return "square";
     }
 
-    public static void main(String[] args) {
-        Square square = new Square();
-        square.drawOutline(4);
-        System.out.println(square.getShapeHeight());
-    }
 }
