@@ -29,7 +29,7 @@ public class RectangleTest {
                 .collect(Collectors.toSet());
         List<String> namesOfExpectedMethod = List.of("draw","drawOutline");
 
-        assertTrue(namesOfExpectedMethod.containsAll(methodNamesFoundInClass));
+        assertTrue(methodNamesFoundInClass.containsAll(namesOfExpectedMethod));
 
     }
 
@@ -48,8 +48,9 @@ public class RectangleTest {
         stdoutReader.readStdOutput();
         Rectangle rectangle = new Rectangle();
         rectangle.draw();
-
         String result = stdoutReader.getText();
+
+        assertEquals(Shape.DEFAULT_HEIGHT, rectangle.getShapeHeight());
         assertEquals(expected, result);
     }
 
@@ -67,8 +68,9 @@ public class RectangleTest {
         reader.readStdOutput();
         Rectangle rectangle = new Rectangle();
         rectangle.draw(5);
-
         String result = reader.getText();
+
+        assertEquals(5, rectangle.getShapeHeight());
         assertEquals(expected,result);
     }
 
@@ -87,27 +89,29 @@ public class RectangleTest {
         reader.readStdOutput();
         Rectangle rectangle = new Rectangle();
         rectangle.drawOutline();
-
         String result = reader.getText();
+
+        assertEquals(Shape.DEFAULT_HEIGHT, rectangle.getShapeHeight());
         assertEquals(expected,result);
     }
 
     @Test
     public void drawRectangleOutlineWithCustomHeight(){
         String expected = """
-                ************
-                *          *
-                *          *
-                *          *
-                ************
+                **********
+                *        *
+                *        *
+                *        *
+                **********
                 """.trim();
         StdoutReader reader = new StdoutReader();
 
         reader.readStdOutput();
         Rectangle rectangle = new Rectangle();
         rectangle.drawOutline(5);
-
         String result = reader.getText();
+
+        assertEquals(5, rectangle.getShapeHeight());
         assertEquals(expected,result);
     }
 }

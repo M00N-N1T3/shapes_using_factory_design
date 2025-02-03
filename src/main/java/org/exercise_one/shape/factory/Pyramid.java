@@ -4,7 +4,6 @@ public class Pyramid implements Shape{
 
     @Override
     public void draw() {
-
     }
 
     @Override
