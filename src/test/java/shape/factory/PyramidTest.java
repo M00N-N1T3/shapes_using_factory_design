@@ -37,7 +37,7 @@ public class PyramidTest {
     @Test
     public void getCorrectShapeName(){
         Pyramid pyramid = new Pyramid();
-        assertEquals("triangle", pyramid.getShapeName());
+        assertEquals("pyramid", pyramid.getShapeName());
     }
 
     @Test
@@ -55,11 +55,12 @@ public class PyramidTest {
     public void drawDefaultPyramidShape(){
         StdoutReader stdoutReader = new StdoutReader();
         String expected = """
-                    *    
-                   ***   
-                  *****  
-                 ******* 
-                *********
+                     *     
+                    * *    
+                   * * *   
+                  * * * *  
+                 * * * * * 
+                * * * * * *
                 """.trim();
 
         stdoutReader.readStdOutput();

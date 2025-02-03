@@ -1,6 +1,5 @@
 package shape.factory;
 
-import org.exercise_one.shape.factory.Rectangle;
 import org.exercise_one.shape.factory.Triangle;
 import org.exercise_one.shape.factory.Shape;
 import org.exercise_one.util.StdoutReader;
@@ -14,7 +13,7 @@ public class TriangleTest {
     @Test
     public void classImplementsShapeInterface(){
         Class<?>[] interfaces = Triangle.class.getInterfaces();
-        assertEquals(interfaces.length, 1);
+        assertEquals(1, interfaces.length);
 
         Class<?> shapeInterface = Shape.class;
         assertTrue(shapeInterface.isAssignableFrom(Triangle.class));
@@ -102,7 +101,7 @@ public class TriangleTest {
                    *
                   *
                  *
-                ***** 
+                *****
                 """.trim();
 
         StdoutReader reader = new StdoutReader();
