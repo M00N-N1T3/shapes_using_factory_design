@@ -23,10 +23,11 @@ public class TriangleTest {
     public void drawDefaultTriangleShape(){
         StdoutReader stdoutReader = new StdoutReader();
         String expected = """
-                   *    
-                  ***   
-                 ***** 
-                *******
+                    *
+                   **
+                  ***
+                 ****
+                *****
                 """.trim();
 
         stdoutReader.readStdOutput();
@@ -38,58 +39,57 @@ public class TriangleTest {
     }
 
     @Test
-    public void drawRectangleWithCustomHeight(){
+    public void drawTriangleWithCustomHeight(){
         StdoutReader reader = new StdoutReader();
         String expected = """
-                **********
-                **********
-                **********
-                **********
-                **********
+                   *
+                  **
+                 ***
+                ****
                 """.trim();
 
+
         reader.readStdOutput();
-        Rectangle rectangle = new Rectangle();
-        rectangle.draw(5);
+        Triangle triangle = new Triangle();
+        triangle.draw(4);
 
         String result = reader.getText();
         assertEquals(expected,result);
     }
 
     @Test
-    public void drawDefaultSquareOutline(){
+    public void drawDefaultTriangleOutline(){
         String expected = """
-                ************
-                *          *
-                *          *
-                *          *
-                *          *
-                ************
+                    *
+                   * 
+                  *  
+                 *   
+                *****
                 """.trim();
         StdoutReader reader = new StdoutReader();
 
         reader.readStdOutput();
-        Rectangle rectangle = new Rectangle();
-        rectangle.drawOutline();
+        Triangle triangle = new Triangle();
+        triangle.drawOutline();
 
         String result = reader.getText();
         assertEquals(expected,result);
     }
 
     @Test
-    public void drawSquareOutlineWithCustomHeight(){
+    public void drawTriangleOutlineWithCustomHeight(){
         String expected = """
-                ************
-                *          *
-                *          *
-                *          *
-                ************
+                   *
+                  * 
+                 *  
+                **** 
                 """.trim();
+
         StdoutReader reader = new StdoutReader();
 
         reader.readStdOutput();
-        Rectangle rectangle = new Rectangle();
-        rectangle.drawOutline(5);
+        Triangle triangle = new Triangle();
+        triangle.drawOutline(5);
 
         String result = reader.getText();
         assertEquals(expected,result);
