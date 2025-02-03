@@ -29,7 +29,7 @@ public class SquareTest {
                 .collect(Collectors.toSet());
         List<String> namesOfExpectedMethod = List.of("draw","drawOutline");
 
-        assertTrue(namesOfExpectedMethod.containsAll(methodNamesFoundInClass));
+        assertTrue(methodNamesFoundInClass.containsAll(namesOfExpectedMethod));
     }
 
     @Test
@@ -47,14 +47,15 @@ public class SquareTest {
         stdoutReader.readStdOutput();
         Square square = new Square();
         square.draw();
-
         String result = stdoutReader.getText();
+
+        assertEquals(Shape.DEFAULT_HEIGHT, square.getShapeHeight());
         assertEquals(expected, result);
     }
 
     @Test
     public void drawSquareWithCustomHeight(){
-        StdoutReader reader = new StdoutReader();
+        StdoutReader stdoutReader = new StdoutReader();
         String expected = """
                 *****
                 *****
@@ -63,11 +64,12 @@ public class SquareTest {
                 *****
                 """.trim();
 
-        reader.readStdOutput();
+        stdoutReader.readStdOutput();
         Square square = new Square();
         square.draw(5);
+        String result = stdoutReader.getText();
 
-        String result = reader.getText();
+        assertEquals(5,square.getShapeHeight());
         assertEquals(expected,result);
     }
 
@@ -81,13 +83,14 @@ public class SquareTest {
                 *    *
                 ******
                 """.trim();
-        StdoutReader reader = new StdoutReader();
+        StdoutReader stdoutReader = new StdoutReader();
 
-        reader.readStdOutput();
+        stdoutReader.readStdOutput();
         Square square = new Square();
         square.drawOutline();
+        String result = stdoutReader.getText();
 
-        String result = reader.getText();
+        assertEquals(Shape.DEFAULT_HEIGHT, square.getShapeHeight());
         assertEquals(expected,result);
     }
 
@@ -100,13 +103,14 @@ public class SquareTest {
                 *   *
                 *****
                 """.trim();
-        StdoutReader reader = new StdoutReader();
+        StdoutReader stdoutReader = new StdoutReader();
 
-        reader.readStdOutput();
+        stdoutReader.readStdOutput();
         Square square = new Square();
         square.drawOutline(5);
+        String result = stdoutReader.getText();
 
-        String result = reader.getText();
+        assertEquals(5, square.getShapeHeight());
         assertEquals(expected,result);
     }
 

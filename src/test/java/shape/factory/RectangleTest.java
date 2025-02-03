@@ -73,7 +73,7 @@ public class RectangleTest {
     }
 
     @Test
-    public void drawDefaultSquareOutline(){
+    public void drawDefaultRectangleOutline(){
         String expected = """
                 ************
                 *          *
@@ -93,7 +93,7 @@ public class RectangleTest {
     }
 
     @Test
-    public void drawSquareOutlineWithCustomHeight(){
+    public void drawRectangleOutlineWithCustomHeight(){
         String expected = """
                 ************
                 *          *
