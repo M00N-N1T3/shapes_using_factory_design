@@ -23,9 +23,10 @@ public class ShapeInterfaceTest {
     @Test
     public void containsDrawMethods(){
         List<Method> methods = List.of(Shape.class.getMethods());
-        assertEquals(4, methods.size());
-        Set<String> methodNames = methods.stream().map(Method::getName).collect(Collectors.toSet());
-        assertTrue(methodNames.containsAll(List.of("draw","drawOutline")));
+        assertEquals(6, methods.size());
+        Set<String> methodsFoundInInterface = methods.stream().map(Method::getName).collect(Collectors.toSet());
+        List<String> expectedMethods = List.of("draw","drawOutline","getShapeHeight","getShapeName");
+        assertTrue(methodsFoundInInterface.containsAll(expectedMethods));
     }
 
 }

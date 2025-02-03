@@ -21,15 +21,15 @@ public class CircleTest {
         Class<?>[] interfaces = Circle.class.getInterfaces();
         Class<?> shapeInterface = Shape.class;
 
-        assertEquals(interfaces.length, 1);
-        assertTrue(shapeInterface.isInstance(Circle.class));
+        assertEquals(1, interfaces.length);
+        assertTrue(shapeInterface.isAssignableFrom(Circle.class));
 
         List<Method> methodsInClass = Arrays.stream(Circle.class.getMethods()).toList();
         Set<String> methodNamesFoundInClass = methodsInClass.stream().map(Method::getName)
                 .collect(Collectors.toSet());
         List<String> namesOfExpectedMethod = List.of("draw","drawOutline");
 
-        assertTrue(namesOfExpectedMethod.containsAll(methodNamesFoundInClass));
+        assertTrue(methodNamesFoundInClass.containsAll(namesOfExpectedMethod));
     }
 
     @Test

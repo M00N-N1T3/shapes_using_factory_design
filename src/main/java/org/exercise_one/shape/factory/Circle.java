@@ -54,11 +54,11 @@ public class Circle implements Shape{
         setHeight(height);
 
         for (int row=0; row < height;row++){
+            boolean rowInValidRange = row > 0 && row < height -1;
+
             for (int column = 0; column < height; column++){
 
                 boolean columnInValidRange = column > 1 && column < height - 2;
-                boolean rowInValidRange = row > 0 && row < height -1;
-
                 boolean drawStar =  (row == 0 && (columnInValidRange))
                         || (row == height -1 && (columnInValidRange))
                         || (column == 0 && (rowInValidRange) )
@@ -84,8 +84,8 @@ public class Circle implements Shape{
             boolean rowInValidRange = row > 0 && row < height -1;
 
             for (int column = 0; column < height; column ++){
-                boolean columnInValidRange = column > 1 && column < height - 2;
 
+                boolean columnInValidRange = column > 1 && column < height - 2;
                 boolean drawStar = (row == 0 && columnInValidRange)
                         || row == height -1 && columnInValidRange
                         || column == 0 && rowInValidRange
@@ -118,8 +118,4 @@ public class Circle implements Shape{
         this.height = height;
     }
 
-    public static void main(String[] args) {
-        Circle c = new Circle();
-        c.drawOutline();
-    }
 }
