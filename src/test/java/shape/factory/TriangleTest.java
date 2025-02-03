@@ -1,5 +1,6 @@
 package shape.factory;
 
+import org.exercise_one.shape.factory.Rectangle;
 import org.exercise_one.shape.factory.Triangle;
 import org.exercise_one.shape.factory.Shape;
 import org.exercise_one.util.StdoutReader;
@@ -20,14 +21,31 @@ public class TriangleTest {
     }
 
     @Test
+    public void getCorrectShapeName(){
+       Triangle triangle = new Triangle();
+        assertEquals("triangle", triangle.getShapeName());
+    }
+
+    @Test
+    public void getCorrectShapeHeight(){
+        Triangle triangle = new Triangle();
+        assertEquals(6, triangle.getShapeHeight());
+
+       triangle.setHeight(2);
+        assertEquals(2,triangle.getShapeHeight());
+    }
+
+
+    @Test
     public void drawDefaultTriangleShape(){
         StdoutReader stdoutReader = new StdoutReader();
         String expected = """
-                    *
-                   **
-                  ***
-                 ****
-                *****
+                     *
+                    **
+                   ***
+                  ****
+                 *****
+                ******
                 """.trim();
 
         stdoutReader.readStdOutput();
@@ -60,11 +78,12 @@ public class TriangleTest {
     @Test
     public void drawDefaultTriangleOutline(){
         String expected = """
-                    *
-                   * 
-                  *  
-                 *   
-                *****
+                     *
+                    * 
+                   *  
+                  *   
+                 *    
+                ******
                 """.trim();
         StdoutReader reader = new StdoutReader();
 
@@ -79,10 +98,11 @@ public class TriangleTest {
     @Test
     public void drawTriangleOutlineWithCustomHeight(){
         String expected = """
+                    *
                    *
-                  * 
-                 *  
-                **** 
+                  *
+                 *
+                ***** 
                 """.trim();
 
         StdoutReader reader = new StdoutReader();

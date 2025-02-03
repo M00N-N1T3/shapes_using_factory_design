@@ -4,7 +4,7 @@ package shape.factory;
 import org.exercise_one.shape.factory.Rectangle;
 import org.exercise_one.shape.factory.Shape;
 import org.exercise_one.util.StdoutReader;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RectangleTest {
 
@@ -32,6 +33,22 @@ public class RectangleTest {
         assertTrue(methodNamesFoundInClass.containsAll(namesOfExpectedMethod));
 
     }
+
+    @Test
+    public void getCorrectShapeName(){
+        Rectangle rectangle = new Rectangle();
+        assertEquals("rectangle",rectangle.getShapeName());
+    }
+
+    @Test
+    public void getCorrectShapeHeight(){
+        Rectangle rectangle = new Rectangle();
+        assertEquals(6,rectangle.getShapeHeight());
+
+        rectangle.setHeight(2);
+        assertEquals(2, rectangle.getShapeHeight());
+    }
+
 
     @Test
     public void drawDefaultRectangleShape(){

@@ -75,8 +75,4 @@ public class Rectangle  implements Shape{
         this.width = height * 2;
     }
 
-    public static void main(String[] args) {
-        Rectangle r = new Rectangle();
-        r.drawOutline(5);
-    }
 }
