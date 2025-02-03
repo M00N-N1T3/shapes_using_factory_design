@@ -23,7 +23,7 @@ public class TriangleTest {
     @Test
     public void getCorrectShapeName(){
        Triangle triangle = new Triangle();
-        assertEquals("triangle", triangle.getShapeName());
+        assertEquals("pyramid", triangle.getShapeName());
     }
 
     @Test

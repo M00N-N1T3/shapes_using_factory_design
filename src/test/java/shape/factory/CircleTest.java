@@ -1,5 +1,6 @@
 package shape.factory;
 
+import org.exercise_one.shape.factory.Circle;
 import org.exercise_one.shape.factory.Shape;
 import org.exercise_one.shape.factory.Circle;
 import org.exercise_one.util.StdoutReader;
@@ -32,6 +33,22 @@ public class CircleTest {
     }
 
     @Test
+    public void getCorrectShapeName(){
+        Circle circle = new Circle();
+        assertEquals("circle", circle.getShapeName());
+    }
+
+    @Test
+    public void getCorrectShapeHeight(){
+        Circle circle = new Circle();
+        assertEquals(6, circle.getShapeHeight());
+
+        circle.setHeight(12);
+        assertEquals(12,circle.getShapeHeight());
+    }
+    
+
+    @Test
     public void drawDefaultCircleShape(){
         String expected = """
                   **  
@@ -61,7 +78,7 @@ public class CircleTest {
                 ********
                 ********
                 ********
-                *******
+                ********
                   ****  
                 """.trim();
 
@@ -97,7 +114,7 @@ public class CircleTest {
     }
 
     @Test
-    public void drawDefaultShape(){
+    public void drawOutlineWithCustomHeight(){
         String expected = """
                   ****  
                 *      *

@@ -2,6 +2,7 @@ package shape.factory;
 
 import org.exercise_one.shape.factory.Shape;
 import org.exercise_one.shape.factory.Pyramid;
+import org.exercise_one.shape.factory.Triangle;
 import org.exercise_one.util.StdoutReader;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +33,22 @@ public class PyramidTest {
 
         assertTrue(namesOfExpectedMethod.containsAll(methodNamesFoundInClass));
     }
+
+    @Test
+    public void getCorrectShapeName(){
+        Pyramid pyramid = new Pyramid();
+        assertEquals("triangle", pyramid.getShapeName());
+    }
+
+    @Test
+    public void getCorrectShapeHeight(){
+        Pyramid pyramid = new Pyramid();
+        assertEquals(6, pyramid.getShapeHeight());
+
+        pyramid.setHeight(2);
+        assertEquals(2,pyramid.getShapeHeight());
+    }
+
 
 
     @Test

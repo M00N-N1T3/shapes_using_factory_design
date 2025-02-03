@@ -1,5 +1,6 @@
 package shape.factory;
 
+import org.exercise_one.shape.factory.Shape;
 import org.exercise_one.shape.factory.Shapes;
 import org.junit.jupiter.api.Test;
 
@@ -20,4 +21,25 @@ public class ShapesTest {
         List<String> expectedMethodNames = List.of("getInstanceOf");
         assertTrue(methodsInClass.containsAll(expectedMethodNames));
     }
+
+    @Test
+    public void defaultShapeIsCircle(){
+        Shapes shapes = new Shapes();
+        Shape shape = shapes.getInstanceOf("merry Go Round");
+        assertEquals("circle",shape.getShapeName());
+    }
+
+    @Test
+    public void testShapeFactory(){
+        Shapes shapes = new Shapes();
+
+        List<String> shapeNames = List.of("square","rectangle","pyramid","circle","triangle");
+
+        for (String shapeName: shapeNames){
+            Shape generatedShape = shapes.getInstanceOf(shapeName);
+            assertEquals(shapeName,generatedShape.getShapeName());
+        }
+    }
+
+
 }

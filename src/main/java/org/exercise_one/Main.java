@@ -1,17 +1,21 @@
 package org.exercise_one;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import org.exercise_one.shape.factory.Shape;
+import org.exercise_one.shape.factory.Shapes;
+
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        List<String> shapeNames = List.of("square","rectangle","pyramid","circle","triangle");
+        Shapes shapes = new Shapes();
+
+        for (String shapeName : shapeNames){
+            Shape shape = shapes.getInstanceOf(shapeName);
+            System.out.printf("Drawing a %s of height %s....%n", shape.getShapeName(), shape.getShapeHeight());
+            shape.draw();
+            System.out.println();
         }
     }
 }

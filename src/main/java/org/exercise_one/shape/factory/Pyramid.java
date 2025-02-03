@@ -1,6 +1,7 @@
 package org.exercise_one.shape.factory;
 
 public class Pyramid implements Shape{
+    private int height = DEFAULT_HEIGHT;
 
     @Override
     public void draw() {
@@ -23,11 +24,15 @@ public class Pyramid implements Shape{
 
     @Override
     public int getShapeHeight() {
-        return 0;
+        return height;
     }
 
     @Override
     public String getShapeName() {
-        return "";
+        return "pyramid";
+    }
+
+    public void setHeight(int height){
+        this.height = height;
     }
 }
