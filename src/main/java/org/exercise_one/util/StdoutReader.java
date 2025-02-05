@@ -1,6 +1,7 @@
 package org.exercise_one.util;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class StdoutReader {
 
@@ -21,7 +22,7 @@ public class StdoutReader {
      */
     public  String getText(){
         resetStdOutputStream();
-        return byteArrayOutputStream.toString().trim();
+        return byteArrayOutputStream.toString(StandardCharsets.UTF_8);
     }
 
     private void setCustomOutputStream(){

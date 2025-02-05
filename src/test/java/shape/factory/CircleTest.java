@@ -2,7 +2,6 @@ package shape.factory;
 
 import org.exercise_one.shape.factory.Circle;
 import org.exercise_one.shape.factory.Shape;
-import org.exercise_one.shape.factory.Circle;
 import org.exercise_one.util.StdoutReader;
 import org.junit.jupiter.api.*;
 
@@ -64,7 +63,7 @@ public class CircleTest {
 
         Circle circle = new Circle();
         circle.draw();
-        String result = reader.getText();
+        String result = reader.getText().trim();
 
         assertEquals(expected, result);
     }
@@ -87,7 +86,7 @@ public class CircleTest {
 
         Circle circle = new Circle();
         circle.draw(8);
-        String result = reader.getText();
+        String result = reader.getText().trim();
 
         assertEquals(expected, result);
     }
@@ -108,7 +107,7 @@ public class CircleTest {
 
         Circle circle = new Circle();
         circle.drawOutline();
-        String result = reader.getText();
+        String result = reader.getText().trim();
 
         assertEquals(expected, result);
     }
@@ -131,7 +130,7 @@ public class CircleTest {
 
         Circle circle = new Circle();
         circle.drawOutline(8);
-        String result = reader.getText();
+        String result = reader.getText().trim();
 
         assertEquals(expected, result);
     }

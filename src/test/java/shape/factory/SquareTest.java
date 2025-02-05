@@ -63,7 +63,7 @@ public class SquareTest {
         stdoutReader.readStdOutput();
         Square square = new Square();
         square.draw();
-        String result = stdoutReader.getText();
+        String result = stdoutReader.getText().trim();
 
         assertEquals(Shape.DEFAULT_HEIGHT, square.getShapeHeight());
         assertEquals(expected, result);
@@ -83,7 +83,7 @@ public class SquareTest {
         stdoutReader.readStdOutput();
         Square square = new Square();
         square.draw(5);
-        String result = stdoutReader.getText();
+        String result = stdoutReader.getText().trim();
 
         assertEquals(5,square.getShapeHeight());
         assertEquals(expected,result);
@@ -104,7 +104,7 @@ public class SquareTest {
         stdoutReader.readStdOutput();
         Square square = new Square();
         square.drawOutline();
-        String result = stdoutReader.getText();
+        String result = stdoutReader.getText().trim();
 
         assertEquals(Shape.DEFAULT_HEIGHT, square.getShapeHeight());
         assertEquals(expected,result);
@@ -124,7 +124,7 @@ public class SquareTest {
         stdoutReader.readStdOutput();
         Square square = new Square();
         square.drawOutline(5);
-        String result = stdoutReader.getText();
+        String result = stdoutReader.getText().trim();
 
         assertEquals(5, square.getShapeHeight());
         assertEquals(expected,result);

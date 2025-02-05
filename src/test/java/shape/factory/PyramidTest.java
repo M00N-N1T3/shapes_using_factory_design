@@ -25,13 +25,12 @@ public class PyramidTest {
         assertTrue(shapeInterface.isAssignableFrom(pyramidClass));
 
         List<Method> methodsInClass = Arrays.stream(pyramidClass.getMethods()).toList();
-        assertEquals(4,methodsInClass.size());
 
         Set<String> methodNamesFoundInClass = methodsInClass.stream().map(Method::getName)
                 .collect(Collectors.toSet());
         List<String> namesOfExpectedMethod = List.of("draw","drawOutline");
 
-        assertTrue(namesOfExpectedMethod.containsAll(methodNamesFoundInClass));
+        assertTrue(methodNamesFoundInClass.containsAll(namesOfExpectedMethod));
     }
 
     @Test
@@ -56,18 +55,18 @@ public class PyramidTest {
         StdoutReader stdoutReader = new StdoutReader();
         String expected = """
                      *     
-                    * *    
-                   * * *   
-                  * * * *  
-                 * * * * * 
-                * * * * * *
+                    ***    
+                   *****   
+                  *******  
+                 ********* 
+                ***********
                 """.trim();
 
         stdoutReader.readStdOutput();
         Pyramid pyramid = new Pyramid();
         pyramid.draw();
 
-        String result = stdoutReader.getText();
+        String result = stdoutReader.getText().trim();
         assertEquals(expected, result);
     }
 
@@ -86,18 +85,19 @@ public class PyramidTest {
         Pyramid pyramid = new Pyramid();
         pyramid.draw(4);
 
-        String result = reader.getText();
+        String result = reader.getText().trim();
         assertEquals(expected,result);
     }
 
     @Test
     public void drawDefaultPyramidOutline(){
         String expected = """
-                    *    
-                   * *   
-                  *   *  
-                 *     * 
-                *********
+                     *    
+                    * *   
+                   *   *  
+                  *     * 
+                 *       *
+                ***********
                 """.trim();
         StdoutReader reader = new StdoutReader();
 
@@ -105,16 +105,16 @@ public class PyramidTest {
         Pyramid pyramid = new Pyramid();
         pyramid.drawOutline();
 
-        String result = reader.getText();
+        String result = reader.getText().trim();
         assertEquals(expected,result);
     }
 
     @Test
     public void drawPyramidOutlineWithCustomHeight(){
         String expected = """
-                   *   
-                  * *  
-                 *   * 
+                   *
+                  * *
+                 *   *
                 *******
                 """.trim();
 
@@ -122,9 +122,9 @@ public class PyramidTest {
 
         reader.readStdOutput();
         Pyramid pyramid = new Pyramid();
-        pyramid.drawOutline(5);
+        pyramid.drawOutline(4);
 
-        String result = reader.getText();
+        String result = reader.getText().trim();
         assertEquals(expected,result);
     }
 

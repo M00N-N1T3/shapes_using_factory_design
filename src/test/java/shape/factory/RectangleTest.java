@@ -65,7 +65,7 @@ public class RectangleTest {
         stdoutReader.readStdOutput();
         Rectangle rectangle = new Rectangle();
         rectangle.draw();
-        String result = stdoutReader.getText();
+        String result = stdoutReader.getText().trim();
 
         assertEquals(Shape.DEFAULT_HEIGHT, rectangle.getShapeHeight());
         assertEquals(expected, result);
@@ -85,7 +85,7 @@ public class RectangleTest {
         reader.readStdOutput();
         Rectangle rectangle = new Rectangle();
         rectangle.draw(5);
-        String result = reader.getText();
+        String result = reader.getText().trim();
 
         assertEquals(5, rectangle.getShapeHeight());
         assertEquals(expected,result);
@@ -106,7 +106,7 @@ public class RectangleTest {
         reader.readStdOutput();
         Rectangle rectangle = new Rectangle();
         rectangle.drawOutline();
-        String result = reader.getText();
+        String result = reader.getText().trim();
 
         assertEquals(Shape.DEFAULT_HEIGHT, rectangle.getShapeHeight());
         assertEquals(expected,result);
@@ -121,12 +121,13 @@ public class RectangleTest {
                 *        *
                 **********
                 """.trim();
+
         StdoutReader reader = new StdoutReader();
 
         reader.readStdOutput();
         Rectangle rectangle = new Rectangle();
         rectangle.drawOutline(5);
-        String result = reader.getText();
+        String result = reader.getText().trim();
 
         assertEquals(5, rectangle.getShapeHeight());
         assertEquals(expected,result);

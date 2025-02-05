@@ -51,7 +51,7 @@ public class TriangleTest {
         Triangle triangle = new Triangle();
         triangle.draw();
 
-        String result = stdoutReader.getText();
+        String result = stdoutReader.getText().trim();
         assertEquals(expected, result);
     }
 
@@ -70,7 +70,7 @@ public class TriangleTest {
         Triangle triangle = new Triangle();
         triangle.draw(4);
 
-        String result = reader.getText();
+        String result = reader.getText().trim();
         assertEquals(expected,result);
     }
 
@@ -90,7 +90,7 @@ public class TriangleTest {
         Triangle triangle = new Triangle();
         triangle.drawOutline();
 
-        String result = reader.getText();
+        String result = reader.getText().trim();
         assertEquals(expected,result);
     }
 
@@ -110,7 +110,7 @@ public class TriangleTest {
         Triangle triangle = new Triangle();
         triangle.drawOutline(5);
 
-        String result = reader.getText();
+        String result = reader.getText().trim();
         assertEquals(expected,result);
     }
 }

@@ -1,37 +1,26 @@
 package org.exercise_one.shape.factory;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Pyramid implements Shape{
     private int height = DEFAULT_HEIGHT;
 
     @Override
     public void draw() {
         // I know the nesting in this section is going to be a mess!
+
+        int centerPoint = height -1;
+
         for (int row = 0; row < height;row++){
-            boolean finishedDrawingStars = false;
+            int startingPoint = centerPoint - row;
+            int endingPoint = centerPoint + row;
 
-            for (int column = 0; column < height * 2; column++){
+            for (int column = 0; column < (height * 2) - 1; column++){
 
-                boolean startDrawingStars = height - row -1 == column;
-                int numberOfStars = (row + 1);
-
-                if (startDrawingStars) {
-                    int count = 1;
-                    // we need the loop to run for as long as the number of stars
-                    while (count <= numberOfStars) {
-                        String starToDraw = (count == numberOfStars) ? "*" : "* ";
-                        System.out.print(starToDraw);
-
-                        count++;
-                        column += ("*".equals(starToDraw)) ? 1 : 2; // incrementing column number
-                        // to ensure column consitency
-                    }
-
-                    finishedDrawingStars = true;
-                }else {
-                    System.out.print(" ");
-                }
-
-                if (finishedDrawingStars) break;
+                boolean drawStar = column >= startingPoint && column <= endingPoint;
+                String string = (drawStar) ? "*" : " ";
+                System.out.print(string);
+                if (column >= endingPoint) break;
             }
             System.out.println();
         }
@@ -39,16 +28,64 @@ public class Pyramid implements Shape{
 
     @Override
     public void draw(int height) {
+        setHeight(height);
+        int centerPoint = height -1;
 
+        for (int row = 0; row < height; row++){
+            int startingPoint = centerPoint - row;
+            int endingPoint = centerPoint + row;
+
+            for (int column = 0; column < height * 2 -1; column++){
+                boolean drawStar = column >= startingPoint && column <= endingPoint;
+                String string = (drawStar) ? "*" : " ";
+                System.out.print(string);
+                if(column >= endingPoint) break;
+            }
+            System.out.println();
+        }
     }
 
     @Override
     public void drawOutline() {
+        int centerPoint = height - 1;
+
+        for (int row = 0; row < height; row ++){
+            int startingPoint = centerPoint - row;
+            int endingPoint = centerPoint + row;
+
+            for (int column = 0; column < height * 2 - 1; column++){
+                boolean drawStar = column == startingPoint
+                        || column == endingPoint
+                        || row == height - 1;
+
+                String string = (drawStar) ? "*" : " ";
+                System.out.print(string);
+                if(column >= endingPoint) break;
+            }
+            System.out.println();
+        }
 
     }
 
     @Override
     public void drawOutline(int height) {
+        setHeight(height);
+        int centerPoint = height - 1;
+
+        for (int row = 0; row < height; row++){
+            int startingPoint = centerPoint - row;
+            int endingPoint = centerPoint + row;
+
+            for (int column = 0; column < height * 2 -1; column++){
+                boolean drawStar = column == startingPoint
+                        || column == endingPoint || row == height -1;
+
+                String string = (drawStar) ? "*" : " ";
+                System.out.print(string);
+                if (column >= endingPoint) break;
+            }
+            System.out.println();
+        }
 
     }
 
@@ -66,8 +103,4 @@ public class Pyramid implements Shape{
         this.height = height;
     }
 
-    public static void main(String[] args) {
-        Pyramid p = new Pyramid();
-        p.draw();
-    }
 }
